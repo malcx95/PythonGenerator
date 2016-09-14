@@ -10,7 +10,7 @@ file(GLOB PythonGenerator_SRC
     )
 
 set(BOOST_ROOT "../boost_1_61_0")
-find_package(Boost 1.61.0)
+find_package(Boost 1.61.0 COMPONENTS program_options REQUIRED)
 
 include_directories(${Boost_INCLUDE_DIRS})
 add_executable(pygen ${PythonGenerator_SRC})
