@@ -15,6 +15,7 @@ class Operator : Function {
 
 };
 
+// TODO replace with enums, you don't need polymorphic behavior
 class BooleanOperator : Operator {};
 class ArithmeticOperator : Operator {};
 class IndexOperator : Operator {};
