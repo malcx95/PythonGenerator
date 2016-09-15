@@ -5,7 +5,7 @@
 #include "variable.h"
 #include <fstream>
 
-const std::string WORDS_FILE_NAME = "words.txt";
+const std::string WORDS_FILE_NAME = "../words.txt";
 
 std::vector<std::string>* parse_args(int argc, char** argv) {
     namespace po = boost::program_options;
@@ -29,9 +29,8 @@ std::vector<std::string> words_init(std::string file_name) {
     std::vector<std::string> words;
     std::ifstream word_file(file_name);
     std::string word;
-    while (std::getline(word_file, word)) {
+    while (word_file >> word) {
         words.push_back(word);
-        std::cout << "hello" << std::endl;
     }
     return words;
 }

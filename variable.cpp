@@ -1,5 +1,4 @@
 #include "variable.h"
-#include "constants.h"
 
 DataType::DataType(std::string name) {
     this->name = name;
