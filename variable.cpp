@@ -1,6 +1,5 @@
 #include "variable.h"
-#include <string>
-#include <vector>
+#include "constants.h"
 
 DataType::DataType(std::string name) {
     this->name = name;
@@ -38,4 +37,9 @@ Number::Number() : BuiltInDataType("int") {
     this->assignment_operators->push_back(AssignmentOperator::ASSIGN_MINUS);
     this->assignment_operators->push_back(AssignmentOperator::ASSIGN_MULTIPLY);
     this->assignment_operators->push_back(AssignmentOperator::ASSIGN_DIVIDE);
+}
+
+std::string Number::generate_random_literal() const {
+    // TODO implement
+    return "1";
 }

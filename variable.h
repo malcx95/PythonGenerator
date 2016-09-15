@@ -81,33 +81,39 @@ class BuiltInDataType : public DataType {
 };
 
 class Number : public BuiltInDataType {
-    Number();
-    virtual std::string generate_random_literal() const override;
+    public:
+        Number();
+        virtual std::string generate_random_literal() const override;
 };
 
 class Bool : public BuiltInDataType {
-    Bool();
-    virtual std::string generate_random_literal() const override;
+    public:
+        Bool();
+        virtual std::string generate_random_literal() const override;
 };
 
 class String : public BuiltInDataType {
-    String();
-    virtual std::string generate_random_literal() const override;
+    public:
+        String();
+        virtual std::string generate_random_literal() const override;
 };
 
 class Tuple : public BuiltInDataType {
-    Tuple();
-    virtual std::string generate_random_literal() const override;
+    public:
+        Tuple();
+        virtual std::string generate_random_literal() const override;
 };
 
 class List : public BuiltInDataType {
-    List();
-    virtual std::string generate_random_literal() const override;
+    public:
+        List();
+        virtual std::string generate_random_literal() const override;
 };
 
 class Dictionary : public BuiltInDataType {
-    Dictionary();
-    virtual std::string generate_random_literal() const override;
+    public:
+        Dictionary();
+        virtual std::string generate_random_literal() const override;
 };
 
 class Variable {
