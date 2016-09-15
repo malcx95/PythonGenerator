@@ -1,3 +1,5 @@
+#ifndef PROGRAM_H
+#define PROGRAM_H
 
 class Program {
 
@@ -5,3 +7,5 @@ class Program {
     private:
 
 };
+
+#endif

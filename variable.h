@@ -1,6 +1,9 @@
 #include <string>
 #include <vector>
 
+#ifndef VARIABLE_H
+#define VARIABLE_H
+
 enum FundamentalType {
 
     NUMBER,
@@ -129,3 +132,4 @@ class Variable {
     
 };
 
+#endif
