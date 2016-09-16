@@ -16,6 +16,8 @@ DataType::~DataType() {
 
 }
 
+// #################### NUMBER ###########################
+
 Number::Number() : BuiltInDataType("int") {
     this->boolean_operators->push_back(BooleanOperator::LESS);
     this->boolean_operators->push_back(BooleanOperator::MORE);
@@ -41,4 +43,55 @@ Number::Number() : BuiltInDataType("int") {
 std::string Number::generate_random_literal() const {
     // TODO implement
     return "1";
+}
+
+// #################### BOOL ###########################
+
+Bool::Bool() : BuiltInDataType("bool") {
+    // TODO implement
+}
+
+std::string Bool::generate_random_literal() const {
+    // TODO implement
+}
+
+// #################### STRING ###########################
+
+String::String() : BuiltInDataType("str") {
+    // TODO implement
+}
+
+std::string String::generate_random_literal() const {
+    // TODO implement
+}
+
+// #################### TUPLE ###########################
+
+Tuple::Tuple() : BuiltInDataType("tuple") {
+    // TODO implement
+}
+
+std::string Tuple::generate_random_literal() const {
+    // TODO implement
+}
+
+// #################### LIST ###########################
+
+List::List() : BuiltInDataType("list") {
+    // TODO implement
+}
+
+std::string List::generate_random_literal() const {
+    // TODO implement
+}
+
+
+// #################### DICTIONARY ###########################
+
+Dictionary::Dictionary() : BuiltInDataType("dict") {
+    // TODO implement
+}
+
+std::string Dictionary::generate_random_literal() const {
+    // TODO implement
 }
