@@ -48,7 +48,15 @@ std::string Number::generate_random_literal() const {
 // #################### BOOL ###########################
 
 Bool::Bool() : BuiltInDataType("bool") {
-    // TODO implement
+    this->boolean_operators->push_back(BooleanOperator::NOT);
+    this->boolean_operators->push_back(BooleanOperator::AND);
+    this->boolean_operators->push_back(BooleanOperator::OR);
+    this->boolean_operators->push_back(BooleanOperator::EQUAL);
+    this->boolean_operators->push_back(BooleanOperator::NOT_EQUAL);
+
+    this->assignment_operators->push_back(AssignmentOperator::ASSIGN);
+    this->assignment_operators->push_back(AssignmentOperator::ASSIGN_OR);
+    this->assignment_operators->push_back(AssignmentOperator::ASSIGN_AND);
 }
 
 std::string Bool::generate_random_literal() const {
@@ -58,7 +66,18 @@ std::string Bool::generate_random_literal() const {
 // #################### STRING ###########################
 
 String::String() : BuiltInDataType("str") {
-    // TODO implement
+    this->boolean_operators->push_back(BooleanOperator::LESS);
+    this->boolean_operators->push_back(BooleanOperator::MORE);
+    this->boolean_operators->push_back(BooleanOperator::EQUAL);
+    this->boolean_operators->push_back(BooleanOperator::LESS_OR_EQUAL);
+    this->boolean_operators->push_back(BooleanOperator::MORE_OR_EQUAL);
+    this->boolean_operators->push_back(BooleanOperator::NOT);
+
+    this->arithmetic_operators->push_back(ArithmeticOperator::PLUS);
+
+    this->assignment_operators->push_back(AssignmentOperator::ASSIGN);
+    this->assignment_operators->push_back(AssignmentOperator::ASSIGN_PLUS);
+    this->iterable = true;
 }
 
 std::string String::generate_random_literal() const {
@@ -68,7 +87,17 @@ std::string String::generate_random_literal() const {
 // #################### TUPLE ###########################
 
 Tuple::Tuple() : BuiltInDataType("tuple") {
-    // TODO implement
+    this->boolean_operators->push_back(BooleanOperator::LESS);
+    this->boolean_operators->push_back(BooleanOperator::MORE);
+    this->boolean_operators->push_back(BooleanOperator::EQUAL);
+    this->boolean_operators->push_back(BooleanOperator::LESS_OR_EQUAL);
+    this->boolean_operators->push_back(BooleanOperator::MORE_OR_EQUAL);
+    this->boolean_operators->push_back(BooleanOperator::NOT);
+
+    this->arithmetic_operators->push_back(ArithmeticOperator::PLUS);
+
+    this->assignment_operators->push_back(AssignmentOperator::ASSIGN);
+    this->iterable = true;
 }
 
 std::string Tuple::generate_random_literal() const {
@@ -78,7 +107,18 @@ std::string Tuple::generate_random_literal() const {
 // #################### LIST ###########################
 
 List::List() : BuiltInDataType("list") {
-    // TODO implement
+    this->boolean_operators->push_back(BooleanOperator::LESS);
+    this->boolean_operators->push_back(BooleanOperator::MORE);
+    this->boolean_operators->push_back(BooleanOperator::EQUAL);
+    this->boolean_operators->push_back(BooleanOperator::LESS_OR_EQUAL);
+    this->boolean_operators->push_back(BooleanOperator::MORE_OR_EQUAL);
+    this->boolean_operators->push_back(BooleanOperator::NOT);
+
+    this->arithmetic_operators->push_back(ArithmeticOperator::PLUS);
+
+    this->assignment_operators->push_back(AssignmentOperator::ASSIGN);
+    this->assignment_operators->push_back(AssignmentOperator::ASSIGN_PLUS);
+    this->iterable = true;
 }
 
 std::string List::generate_random_literal() const {
@@ -89,7 +129,15 @@ std::string List::generate_random_literal() const {
 // #################### DICTIONARY ###########################
 
 Dictionary::Dictionary() : BuiltInDataType("dict") {
-    // TODO implement
+    this->boolean_operators->push_back(BooleanOperator::LESS);
+    this->boolean_operators->push_back(BooleanOperator::MORE);
+    this->boolean_operators->push_back(BooleanOperator::EQUAL);
+    this->boolean_operators->push_back(BooleanOperator::LESS_OR_EQUAL);
+    this->boolean_operators->push_back(BooleanOperator::MORE_OR_EQUAL);
+    this->boolean_operators->push_back(BooleanOperator::NOT);
+
+    this->assignment_operators->push_back(AssignmentOperator::ASSIGN);
+    this->iterable = true;
 }
 
 std::string Dictionary::generate_random_literal() const {
