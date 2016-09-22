@@ -25,12 +25,12 @@ std::vector<std::string>* parse_args(int argc, char** argv) {
     return result;
 }
 
-std::vector<std::string> words_init(std::string file_name) {
-    std::vector<std::string> words;
+std::vector<std::string>* words_init(std::string file_name) {
+    std::vector<std::string>* words = new std::vector<std::string>;
     std::ifstream word_file(file_name);
     std::string word;
     while (word_file >> word) {
-        words.push_back(word);
+        words->push_back(word);
     }
     return words;
 }
@@ -50,7 +50,10 @@ std::vector<BuiltInDataType*> datatypes_init() {
 int main(int argc, char* argv[])
 {
     std::vector<std::string>* args = parse_args(argc, argv);
-    const std::vector<std::string> words = words_init(WORDS_FILE_NAME);
+    const std::vector<std::string>* words = words_init(WORDS_FILE_NAME);
     const std::vector<BuiltInDataType*> built_in_types = datatypes_init();
+    String s(words);
+    while (true)
+    std::cout << s.generate_random_literal() << std::endl;
     return 0;
 }

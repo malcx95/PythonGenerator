@@ -1,4 +1,5 @@
 #include <string>
+#include <random>
 #include <vector>
 
 #ifndef VARIABLE_H
@@ -87,6 +88,8 @@ class Number : public BuiltInDataType {
     public:
         Number();
         virtual std::string generate_random_literal() const override;
+        std::string generate_random_int() const;
+        std::string generate_random_float() const;
 };
 
 class Bool : public BuiltInDataType {
@@ -97,8 +100,12 @@ class Bool : public BuiltInDataType {
 
 class String : public BuiltInDataType {
     public:
-        String();
+        String(const std::vector<std::string>* words);
         virtual std::string generate_random_literal() const override;
+        std::string generate_gibberish() const;
+        std::string generate_random_words() const;
+    private:
+        const std::vector<std::string>* words;
 };
 
 class Tuple : public BuiltInDataType {
