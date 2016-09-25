@@ -8,6 +8,10 @@
 
 namespace misc {
 
+    /*
+     * Gets a random word from the word list
+     *
+     */
     std::string get_random_word(const std::vector<std::string>* words) {
         std::default_random_engine generator;
         generator.seed(std::random_device()());
