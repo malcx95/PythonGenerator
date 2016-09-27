@@ -1,6 +1,7 @@
 #include <string>
 #include <random>
 #include <vector>
+#include "function.h"
 
 #ifndef VARIABLE_H
 #define VARIABLE_H
@@ -60,11 +61,12 @@ class DataType {
 
     protected:
         DataType(std::string name);
-        ~DataType();
 
     public:
+        ~DataType();
         std::string name;
         std::vector<BooleanOperator>* boolean_operators;
+        std::vector<Function>* methods; 
         std::vector<ArithmeticOperator>* arithmetic_operators;
         std::vector<AssignmentOperator>* assignment_operators;
         bool iterable;
@@ -84,6 +86,7 @@ class BuiltInDataType : public DataType {
 
 };
 
+
 class Number : public BuiltInDataType {
     public:
         Number();
@@ -92,11 +95,13 @@ class Number : public BuiltInDataType {
         std::string generate_random_float() const;
 };
 
+
 class Bool : public BuiltInDataType {
     public:
         Bool();
         virtual std::string generate_random_literal() const override;
 };
+
 
 class String : public BuiltInDataType {
     public:
@@ -108,11 +113,13 @@ class String : public BuiltInDataType {
         const std::vector<std::string>* words;
 };
 
+
 class Tuple : public BuiltInDataType {
     public:
         Tuple();
         virtual std::string generate_random_literal() const override;
 };
+
 
 class List : public BuiltInDataType {
     public:
@@ -120,23 +127,38 @@ class List : public BuiltInDataType {
         virtual std::string generate_random_literal() const override;
 };
 
+
 class Dictionary : public BuiltInDataType {
     public:
         Dictionary();
         virtual std::string generate_random_literal() const override;
 };
 
-class Variable {
+
+struct Variable {
 
     public:
-        std::string get_name() const;
-        DataType get_type() const;
-        void set_type(DataType t);
-
-    private:
+        Variable(std::string name, DataType* type);
         std::string name;
-        DataType type;
+        DataType* type;
     
+};
+
+
+class Class : public DataType {
+
+    public:
+
+        Class(std::string name) : DataType(name) {
+            fields = new std::vector<Variable>;
+        }
+
+        ~Class() {
+            delete fields;
+        }
+
+        std::vector<Variable>* fields;
+
 };
 
 #endif

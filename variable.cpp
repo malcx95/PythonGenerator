@@ -10,6 +10,7 @@ DataType::DataType(std::string name) {
     this->boolean_operators = new std::vector<BooleanOperator>;
     this->arithmetic_operators = new std::vector<ArithmeticOperator>;
     this->assignment_operators = new std::vector<AssignmentOperator>;
+    this->methods = new std::vector<Function>;
     this->iterable = false;
 }
 
@@ -18,6 +19,7 @@ DataType::~DataType() {
     delete this->boolean_operators;
     delete this->arithmetic_operators;
     delete this->assignment_operators;
+    delete this->methods;
 
 }
 
@@ -231,3 +233,9 @@ Dictionary::Dictionary() : BuiltInDataType("dict") {
 std::string Dictionary::generate_random_literal() const {
     return "{}";
 }
+
+Variable::Variable(std::string name, DataType* type) {
+    this->type = type;
+    this->name = name;
+}
+
