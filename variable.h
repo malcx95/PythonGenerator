@@ -1,5 +1,7 @@
 #include <string>
+#include <random>
 #include <vector>
+#include "function.h"
 
 #ifndef VARIABLE_H
 #define VARIABLE_H
@@ -59,11 +61,12 @@ class DataType {
 
     protected:
         DataType(std::string name);
-        ~DataType();
 
     public:
+        ~DataType();
         std::string name;
         std::vector<BooleanOperator>* boolean_operators;
+        std::vector<Function>* methods; 
         std::vector<ArithmeticOperator>* arithmetic_operators;
         std::vector<AssignmentOperator>* assignment_operators;
         bool iterable;
@@ -83,11 +86,15 @@ class BuiltInDataType : public DataType {
 
 };
 
+
 class Number : public BuiltInDataType {
     public:
         Number();
         virtual std::string generate_random_literal() const override;
+        std::string generate_random_int() const;
+        std::string generate_random_float() const;
 };
+
 
 class Bool : public BuiltInDataType {
     public:
@@ -95,11 +102,17 @@ class Bool : public BuiltInDataType {
         virtual std::string generate_random_literal() const override;
 };
 
+
 class String : public BuiltInDataType {
     public:
-        String();
+        String(const std::vector<std::string>* words);
         virtual std::string generate_random_literal() const override;
+        std::string generate_gibberish() const;
+        std::string generate_random_words() const;
+    private:
+        const std::vector<std::string>* words;
 };
+
 
 class Tuple : public BuiltInDataType {
     public:
@@ -107,11 +120,13 @@ class Tuple : public BuiltInDataType {
         virtual std::string generate_random_literal() const override;
 };
 
+
 class List : public BuiltInDataType {
     public:
         List();
         virtual std::string generate_random_literal() const override;
 };
+
 
 class Dictionary : public BuiltInDataType {
     public:
@@ -119,17 +134,31 @@ class Dictionary : public BuiltInDataType {
         virtual std::string generate_random_literal() const override;
 };
 
-class Variable {
+
+struct Variable {
 
     public:
-        std::string get_name() const;
-        DataType get_type() const;
-        void set_type(DataType t);
-
-    private:
+        Variable(std::string name, DataType* type);
         std::string name;
-        DataType type;
+        DataType* type;
     
+};
+
+
+class Class : public DataType {
+
+    public:
+
+        Class(std::string name) : DataType(name) {
+            fields = new std::vector<Variable>;
+        }
+
+        ~Class() {
+            delete fields;
+        }
+
+        std::vector<Variable>* fields;
+
 };
 
 #endif

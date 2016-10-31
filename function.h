@@ -3,12 +3,10 @@
 #ifndef FUNCTION_H
 #define FUNCTION_H
 
-class Function {
+struct Function {
 
     public:
-        
-    private:
-
+        const DataType* return_type;
 };
 
 #endif
